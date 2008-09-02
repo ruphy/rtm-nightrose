@@ -6,7 +6,10 @@
  
 #include <plasma/svg.h>
 #include <plasma/theme.h>
- 
+
+#include "rtmapi.h"
+// #include "rtm/rtmapi.c"
+
 Rtm::Rtm(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args),
     m_svg(this),
@@ -29,6 +32,9 @@ Rtm::~Rtm()
  
 void Rtm::init()
 {
+    rtm_api *rtm = rtm_api_init("4375efc5a88a6917485c7864736d5eef", "68fc073a483defd7");
+
+
     // A small demonstration of the setFailedToLaunch function
     if (m_icon.isNull()) {
         setFailedToLaunch(true, "No world to say hello");
