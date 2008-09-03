@@ -21,12 +21,13 @@ include_directories(
    )
  
 # We add our source code here
-set(rtm_SRCS rtmapi.c rtm.cpp)
+set(rtm_SRCS rtmapi.cpp rtmparser.cpp rtm.cpp)
  
 # Now make sure all files get to the right place
 kde4_add_plugin(plasma_applet_rtm ${rtm_SRCS})
 target_link_libraries(plasma_applet_rtm 
-                      ${OPENSSL_LIBRARIES} curl crypto ${GLIB2_LIBRARIES} ${PLASMA_LIBS} ${KDE4_KDEUI_LIBS})
+                      ${OPENSSL_LIBRARIES} curl crypto ${GLIB2_LIBRARIES}
+                      ${PLASMA_LIBS} ${KDE4_KIO_LIBS} ${KDE4_KDEUI_LIBS})
  
 install(TARGETS plasma_applet_rtm
         DESTINATION ${PLUGIN_INSTALL_DIR})

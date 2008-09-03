@@ -3,12 +3,15 @@
 #define RTM_HEADER
 // We need the Plasma Applet headers
 #include <KIcon>
- 
+
 #include <Plasma/Applet>
 #include <Plasma/Svg>
  
 class QSizeF;
- 
+class QGraphicsLinearLayout;
+namespace Plasma { class PushButton; class Label; };
+// class KUrlLabel;
+
 // Define our plasma Applet
 class Rtm : public Plasma::Applet
 {
@@ -19,12 +22,16 @@ class Rtm : public Plasma::Applet
         ~Rtm();
  
         // The paintInterface procedure paints the applet to screen
-        void paintInterface(QPainter *painter,
-                const QStyleOptionGraphicsItem *option,
-                const QRect& contentsRect);
+//         void paintInterface(QPainter *painter,
+//                 const QStyleOptionGraphicsItem *option,
+//                 const QRect& contentsRect);
         void init();
  
     private:
+        Plasma::Label *m_label;
+        Plasma::PushButton *m_authButton;
+        QGraphicsLinearLayout *m_layout;
+        QString m_a;
         Plasma::Svg m_svg;
         KIcon m_icon;
 };
