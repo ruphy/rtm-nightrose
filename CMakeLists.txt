@@ -21,8 +21,18 @@ include_directories(
    )
  
 # We add our source code here
-set(rtm_SRCS rtmapi.cpp rtmparser.cpp rtm.cpp)
- 
+set(rtm_SRCS
+rtmapi.cpp
+# rtmparser.cpp
+rtm.cpp)
+
+
+SET(rtm_UI
+  widj.ui
+)
+
+KDE4_ADD_UI_FILES(rtm_SRCS ${rtm_UI} )
+
 # Now make sure all files get to the right place
 kde4_add_plugin(plasma_applet_rtm ${rtm_SRCS})
 target_link_libraries(plasma_applet_rtm 

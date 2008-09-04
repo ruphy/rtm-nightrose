@@ -6,10 +6,13 @@
 
 #include <Plasma/Applet>
 #include <Plasma/Svg>
- 
+
+#include "ui_widj.h"
+
 class QSizeF;
 class QGraphicsLinearLayout;
-namespace Plasma { class PushButton; class Label; };
+namespace Plasma { class PushButton; class Label; }
+// namespace Ui { class MainWidget; }
 // class KUrlLabel;
 
 // Define our plasma Applet
@@ -22,9 +25,9 @@ class Rtm : public Plasma::Applet
         ~Rtm();
  
         // The paintInterface procedure paints the applet to screen
-//         void paintInterface(QPainter *painter,
-//                 const QStyleOptionGraphicsItem *option,
-//                 const QRect& contentsRect);
+        void paintInterface(QPainter *painter,
+                const QStyleOptionGraphicsItem *option,
+                const QRect& contentsRect);
         void init();
  
     private:
@@ -34,6 +37,8 @@ class Rtm : public Plasma::Applet
         QString m_a;
         Plasma::Svg m_svg;
         KIcon m_icon;
+        Ui::MainWidget *m_ui;
+        QWidget *w;
 };
  
 // This is the command that links your applet to the .desktop file
